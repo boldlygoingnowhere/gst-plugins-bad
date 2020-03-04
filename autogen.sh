@@ -50,13 +50,15 @@ if test -d po ; then
   touch -t 200001010000 po/gst-plugins-bad-1.0.pot
 fi
 
-CONFIGURE_DEF_OPT='--enable-maintainer-mode --enable-gtk-doc'
+CONFIGURE_DEF_OPT="${CONFIGURE_DEF_OPT:---enable-maintainer-mode --enable-gtk-doc}"
 
 if test "x$package" = "xgstreamer"; then
   CONFIGURE_DEF_OPT="$CONFIGURE_DEF_OPT --enable-failing-tests --enable-poisoning"
 elif test "x$package" = "xgst-plugins-bad"; then
   CONFIGURE_DEF_OPT="$CONFIGURE_DEF_OPT --with-player-tests"
 fi
+
+echo "CONFIGURE_DEF_OPT=${CONFIGURE_DEF_OPT}"
 
 autogen_options $@
 
