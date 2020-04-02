@@ -512,7 +512,7 @@ gst_motion_cells_set_property (GObject * object, guint prop_id,
       tmply = -1;
       break;
     case PROP_MOTIONMASKCELLSPOS:
-      motionmaskcellsstr = g_strsplit (g_value_get_string (value), ",", 255);
+      motionmaskcellsstr = g_strsplit (g_value_get_string (value), ",", 768);
       GFREE (filter->motionmaskcellsidx);
       //setting number of regions
       for (filter->motionmaskcells_count = 0;
